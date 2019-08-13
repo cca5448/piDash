@@ -3,21 +3,21 @@ var app = angular.module("Dashboard", ['ngMaterial', 'nvd3']);
 
 app.config(function($mdThemingProvider) {
 
-	$mdThemingProvider.definePalette('purple', {
-    '50': '8D48AB',
-    '100': '8D48AB',
-    '200': '8D48AB',
-    '300': '8D48AB',
-    '400': '8D48AB',
-    '500': '8D48AB',
-    '600': '8D48AB',
-    '700': '8D48AB',
-    '800': '8D48AB',
-    '900': '8D48AB',
-    'A100': '8D48AB',
-    'A200': '8D48AB',
-    'A400': '8D48AB',
-    'A700': '8D48AB',
+	$mdThemingProvider.definePalette('red', {
+    '50': 'AF0606',
+    '100': 'AF0606',
+    '200': 'AF0606',
+    '300': 'AF0606',
+    '400': 'AF0606',
+    '500': 'AF0606',
+    '600': 'AF0606',
+    '700': 'AF0606',
+    '800': 'AF0606',
+    '900': 'AF0606',
+    'A100': 'AF0606',
+    'A200': 'AF0606',
+    'A400': 'AF0606',
+    'A700': 'AF0606',
     'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
                                         // on this palette should be dark or light
 
@@ -28,7 +28,7 @@ app.config(function($mdThemingProvider) {
 
 	$mdThemingProvider.theme('default')
 		.dark()
-		.primaryPalette('purple');
+		.primaryPalette('red');
 });
 
 app.factory('updateService', function(){
@@ -46,18 +46,19 @@ app.factory('updateService', function(){
 			autoAlignGear: false
 		},
 		motors: {
-			motorFrontLeft: 1,
-			motorBackLeft: 1,
-			motorBackRight: -1,
-			motorFrontRight: -1,
-			encoderFrontLeft: 0,
-			encoderBackLeft: 0,
-			encoderBackRight: 0,
-			encoderFrontRight: 0,
-			climberMotor: 0
+			motorLeftFront: 1,
+			motorRightFront: -1,
+			motorLeftRear: 1,
+			motorRightRear: -1,
+			encoderLeftFront: 45,
+			encoderLeftRear: 45,
+			encoderRightFront: 45,
+			encoderRightRear: 45,
+			motorClimber: 0
 		},
 		vision: {
 			targetVisible: false,
+			displacement: -34.2,
 			xDistance: 0
 		},
 		gear: {
@@ -66,17 +67,17 @@ app.factory('updateService', function(){
 		power: {
 			batteryVoltage: 12.73,
 			totalPowerUse: 28.6,
-			powerFrontLeft: 12.4,
-			powerBackLeft: 7,
-			powerBackRight: 9,
-			powerFrontRight: 10,
-			powerClimber: 0,
+			powerLeftFront: 7.3,
+			powerRightFront: 7.5,
+			powerLeftRear: 7.3,
+			powerRightRear: 7.4,
+			powerClimber: 0.1,
 			powerRio: 0.8,
 			powerJetson: 2.3,
-			powerLed: 1.4,
-      powerPcm: 0,
-      RioCpu: 86,
-      RioRam: 34
+			powerLed: 1.40,
+			powerPcm: 0.0,
+			RioCpu: 63.3,
+			RioRam: 34.6
 		},
 		match: {
 			time: 0,
@@ -86,9 +87,9 @@ app.factory('updateService', function(){
 
 		},
 		sensors: {
-			gyroAngle: 42,
-			ultrasonic1: 0,
-			ultrasonic2: 0
+			gyroAngle: 74,
+			ultrasonicLeft: 43,
+			ultrasonicRight: 44
 		},
 		autoMode:{
 			selectedMode: 'forward',
@@ -161,13 +162,13 @@ app.controller('clockCtrl', function($scope, updateService){
     var minutes = data.match.time / 60;
     var seconds = data.match.time % 60;
 
-    return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    return (minutes < 10 ? '' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
   };
   $scope.getStatus = function(){
     if(data.connected)
-      return 'connected';
+      return 'yes';
     else
-      return 'disconnected';
+      return 'no';
   };
 });
 

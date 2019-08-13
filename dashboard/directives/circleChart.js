@@ -42,7 +42,7 @@ angular.module('Dashboard').directive("circleChart", function() {
 
       var startColor = '#3DD5E3';
       var midColor = '#7B67B7';
-      var endColor = '#8D48AB';
+      var endColor = '#AF0606';
       var backgroundColor = '#21323A';
       var thickness = 0.1;
 

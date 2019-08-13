@@ -1,10 +1,10 @@
 .background{
-  background-color: #21323A;
+  background-color: #11222A;
 }
 
 .box{
   background-color: #2B3A42;
-  margin: 5px;
+  margin: 2px;
   border-radius: 0px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -48,7 +48,15 @@
 }
 
 .value{
-  color: #8D48AB;
+  color: #AF0606;
+}
+
+.green{
+  color: #00FF00;
+}
+
+.b-box1 .value, .b-box2 .value{
+  font-size: 1.5em;
 }
 
 .title{
@@ -148,7 +156,7 @@
 }
 
 .buttonSelected{
-  background-color: #8D48AB !important;
+  background-color: #AF0606 !important;
 }
 
 .buttonText{

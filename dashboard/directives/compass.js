@@ -95,8 +95,8 @@ angular.module('Dashboard').directive("compass", function() {
         ctx.rotate(angle);
 
         ctx.strokeWidth = 1;
-        ctx.strokeStyle = '#8D48AB';
-        ctx.fillStyle = '#8D48AB';
+        ctx.strokeStyle = '#AF0606';
+        ctx.fillStyle = '#AF0606';
 
         ctx.beginPath();
         ctx.moveTo(arrowWidth / 2, 0);
@@ -116,7 +116,7 @@ angular.module('Dashboard').directive("compass", function() {
         ctx.beginPath();
         ctx.moveTo(arrowWidth / 2, 0);
         ctx.lineTo(arrowWidth / 2, size * 0.7);
-        ctx.lineTo(0, size * 0.9);
+        ctx.lineTo(0, size * 0.5);
         ctx.lineTo(-arrowWidth / 2, size * 0.7);
         ctx.lineTo(-arrowWidth / 2, 0);
         ctx.lineTo(arrowWidth / 2, 0);
