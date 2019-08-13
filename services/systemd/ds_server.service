@@ -1,0 +1,13 @@
+[Unit]
+Description=PyNetwork Tables Web Server
+
+[Service]
+Environment=XAUTHORITY=/home/pi/.Xauthority
+Type=simple
+ExecStart=/bin/bash /home/pi/piDash/services/ds_server.sh
+Restart=on-abort
+User=pi
+Group=pi
+
+[Install]
+WantedBy=ds_kiosk.service

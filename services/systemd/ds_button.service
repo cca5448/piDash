@@ -1,0 +1,16 @@
+[Unit]
+Description=Driver Station Kiosk Button Manager
+Wants=graphical.target
+After=graphical.target
+
+[Service]
+Environment=DISPLAY=:0.0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/piDash/services/ds_button.py
+Restart=on-abort
+User=pi
+Group=pi
+
+[Install]
+WantedBy=graphical.target
