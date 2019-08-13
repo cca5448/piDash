@@ -8,6 +8,8 @@
 #xset -dpms
 
 #set screen timeout to 10 minutes
+xset s on
+xset s blank
 xset s 600
 
 #hide mouse pointer
