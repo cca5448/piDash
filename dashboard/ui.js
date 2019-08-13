@@ -162,7 +162,7 @@ app.controller('clockCtrl', function($scope, updateService){
     var minutes = data.match.time / 60;
     var seconds = data.match.time % 60;
 
-    return (minutes < 10 ? '' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    return (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
   };
   $scope.getStatus = function(){
     if(data.connected)
